@@ -74,6 +74,13 @@ public class FrameClient extends JFrame {
 	 */
 	private void initialisationMenu() {
 		MenuItem commander = new MenuItem("Commander");
+		commander.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent event) {
+				panCommander.commander(numClient);
+				cartes.show(panContents, COMMANDER);
+			}
+		});
+		
 		MenuItem historique = new MenuItem("Historique");
 		MenuItem modifierProfil = new MenuItem("Modifier mon profil");
 		

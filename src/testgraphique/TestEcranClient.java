@@ -9,7 +9,8 @@ import vueGraphique.FrameClient;
 public class TestEcranClient {
 	
 	/*
-	 * Main fonction
+	 * Fonction main
+	 * Cree la fenetre
 	 */
 	public static void main(String[] args) {
 		new FrameClient(1,

@@ -1,5 +1,6 @@
 package control;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import model.Accompagnement;
@@ -60,14 +61,14 @@ public class ControlCommander {
     /**
      * Getter listeHamburger.
      *
-     * @return La chaine de caractère de la liste des hamburgers.
+     * @return Liste des hamburgers avec leur numero et leur nom.
      */
-    public String getListHamburger() {
-    	String listeHamburgers = "";
+    public List<String> getListHamburger() {
+    	List<String> listeHamburgers = new ArrayList<String>();
     	List<Hamburger> listeHamburger = menu.getListHamburger();
     	int numero = 1;
     	for ( Hamburger hamburger : listeHamburger ) {
-    		listeHamburgers += numero + ". " + hamburger.getNom() + "\n";
+    		listeHamburgers.add(numero + ". " + hamburger.getNom());
     		numero++;
     	}
     	return listeHamburgers;
@@ -76,14 +77,14 @@ public class ControlCommander {
     /**
      * Getter listeAccompagnement.
      *
-     * @return La chaine de caractère de la liste des accompagnements.
+     * @return Liste des accompagnements avec leur numero et leur nom.
      */
-    public String getListAccompagnement() {
-    	String listeAccompagnements = "";
+    public List<String> getListAccompagnement() {
+    	List<String> listeAccompagnements = new ArrayList<String>();
     	List<Accompagnement> listeAccompagnement = menu.getListAccompagnement();
     	int numero = 1;
     	for ( Accompagnement accompagnement : listeAccompagnement ) {
-    		listeAccompagnements += numero + ". " + accompagnement.getNom() + "\n";
+    		listeAccompagnements.add(numero + ". " + accompagnement.getNom());
     		numero++;
     	}
     	return listeAccompagnements;
@@ -92,14 +93,14 @@ public class ControlCommander {
     /**
      * Getter listeBoisson.
      *
-     * @return La chaine de caractère de la liste des boissons.
+     * @return Liste des boissons avec leur numero et leur nom.
      */
-    public String getListBoisson() {
-    	String listeBoissons = "";
+    public List<String> getListBoisson() {
+    	List<String> listeBoissons = new ArrayList<String>();
     	List<Boisson> listeBoisson = menu.getListBoisson();
     	int numero = 1;
     	for ( Boisson boisson : listeBoisson ) {
-    		listeBoissons += numero + ". " + boisson.getNom() + "\n";
+    		listeBoissons.add(numero + ". " + boisson.getNom());
     		numero++;
     	}
     	return listeBoissons;
