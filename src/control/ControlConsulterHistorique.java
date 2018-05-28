@@ -3,7 +3,6 @@ package control;
 import java.util.List;
 
 import model.BDClient;
-import model.BDCommande;
 import model.Client;
 import model.Commande;
 import model.ProfilUtilisateur;

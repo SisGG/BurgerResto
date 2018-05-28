@@ -4,8 +4,6 @@ import java.util.Observer;
 
 import model.BDClient;
 import model.BDCommande;
-import model.Client;
-import model.Commande;
 import model.ProfilUtilisateur;
 
 /**

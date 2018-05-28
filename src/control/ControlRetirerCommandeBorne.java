@@ -5,8 +5,6 @@ import model.BDCommande;
 import model.CarteBancaire;
 import model.Client;
 import model.Commande;
-import model.ProfilUtilisateur;
-
 /**
  * 
  * @author LAPEYRADE Sylvain

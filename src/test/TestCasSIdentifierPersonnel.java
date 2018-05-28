@@ -20,7 +20,7 @@ public class TestCasSIdentifierPersonnel {
 		BoundarySIdentifierPersonnel boundarySIdentifierPersonnel = new BoundarySIdentifierPersonnel(
 				controlSIdentifier);
 		// Lancement du cas
-		int numPersonnel = boundarySIdentifierPersonnel.sIdentifierPersonnel();
+		int numPersonnel = boundarySIdentifierPersonnel.identifierPersonnel();
 
 		// Verification de la bonne r�alisation du cas
 		System.out.println("VERIFICATION");

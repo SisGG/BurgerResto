@@ -1,8 +1,6 @@
 package vue;
 
 import control.ControlCommander;
-import control.ControlVerifierIdentification;
-
 /**
  * 
  * @author LAPEYRADE Sylvain

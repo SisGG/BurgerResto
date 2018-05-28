@@ -7,7 +7,6 @@ import control.ControlEnregistrerCoordonneesBancaires;
 import control.ControlSIdentifier;
 import control.ControlVerifierCoordonneesBancaires;
 import control.ControlVerifierIdentification;
-import model.BDCommande;
 import model.ProfilUtilisateur;
 import vue.BoundaryCommander;
 import vue.BoundaryEnregistrerCoordonneesBancaires;
@@ -52,7 +51,7 @@ public class TestCasCommander {
 		boundaryCommander.commander(numClient);
 		
 		// Verification de la bonne realisation du cas
-		//Ajouter dans le controleur "controlCommander" la méthode visualisationBDCommandes :
+		//Ajouter dans le controleur "controlCommander" la mï¿½thode visualisationBDCommandes :
 		// public String visualiserBDCommandes() {
 		// BDCommande bdCommande = BDCommande.getInstance();
 		// return (bdCommande.toString());
