@@ -39,7 +39,7 @@ public class FrameClient extends JFrame {
 	 * @param controlCommander Controleur commander commande.
 	 * @param controlEnregistrerCoordonneesBancaires Controleur Enregistrer coordonnees bancaires.
 	 */
-	public FrameClient(int numeroClient,
+	public FrameClient(int numClient,
 			ControlCommander controlCommander,
 			ControlEnregistrerCoordonneesBancaires controlEnregistrerCoordonneesBancaires) {
 		
@@ -51,7 +51,7 @@ public class FrameClient extends JFrame {
 		this.setSize(900, 400);
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
-		this.initialisationMenu();
+		this.initialisationMenu(numClient);
 		this.setMenuBar(barreMenu);
 		
 		panCommander.initialisation();
@@ -72,7 +72,7 @@ public class FrameClient extends JFrame {
 	/**
 	 * Initialise le menu.
 	 */
-	private void initialisationMenu() {
+	private void initialisationMenu(int numClient) {
 		MenuItem commander = new MenuItem("Commander");
 		commander.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent event) {
