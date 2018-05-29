@@ -19,6 +19,7 @@ public class PanEnregistrerCoordonneesBancaires extends JPanel {
 
 	private static final long serialVersionUID = 1L;
 	private ControlEnregistrerCoordonneesBancaires controlEnregistrerCoordonneesBancaires;
+	private IUseEnregistrerCoordonneesBancaires panAppelant;
 	private Font policeTitre = new Font("Calibri", Font.BOLD, 24);
 	private Font policeParagraphe = new Font("Calibri", Font.HANGING_BASELINE, 16);
 	private Font policeAremplacer = new Font("Arial", Font.ITALIC, 12);
@@ -94,8 +95,9 @@ public class PanEnregistrerCoordonneesBancaires extends JPanel {
 		this.setVisible(true);
 	}
 	
-	public void enregistrerCoordonneesBancaires(int numClient) {
+	public void enregistrerCoordonneesBancaires(int numClient, IUseEnregistrerCoordonneesBancaires panAppelant) {
 		this.numClient = numClient;
+		this.panAppelant = panAppelant;
 		textAeraNumeroCarte.setText("");
 		textAeraDateExpiration.setText("MMAA");
 		this.setVisible(true);
@@ -104,6 +106,7 @@ public class PanEnregistrerCoordonneesBancaires extends JPanel {
 	
 	private void traitementCoordoneesBancaires(int numeroCarte, int dateCarte) {
 		boolean carteValide = controlEnregistrerCoordonneesBancaires.enregistrerCoordonneesBancaires(numClient, numeroCarte, dateCarte);
+		panAppelant.retourEnregistrerCoordonneesBancaires(carteValide);
 	}
 
 
