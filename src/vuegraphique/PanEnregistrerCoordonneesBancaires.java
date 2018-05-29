@@ -73,7 +73,9 @@ public class PanEnregistrerCoordonneesBancaires extends JPanel {
 		validationCoordonneesBancaires.setText("Valider");
 		validationCoordonneesBancaires.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				System.out.println("Ok");
+				int numeroCarte = Integer.valueOf(textAeraNumeroCarte.getText());
+				int dateCarte = Integer.valueOf(textAeraDateExpiration.getText());
+				traitementCoordoneesBancaires(numeroCarte, dateCarte);
 			}
 		});
 		boxValiderCarte.add(validationCoordonneesBancaires);
@@ -98,6 +100,10 @@ public class PanEnregistrerCoordonneesBancaires extends JPanel {
 		textAeraDateExpiration.setText("MMAA");
 		this.setVisible(true);
 		this.repaint();
+	}
+	
+	private void traitementCoordoneesBancaires(int numeroCarte, int dateCarte) {
+		boolean carteValide = controlEnregistrerCoordonneesBancaires.enregistrerCoordonneesBancaires(numClient, numeroCarte, dateCarte);
 	}
 
 
