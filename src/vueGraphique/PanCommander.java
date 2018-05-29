@@ -8,6 +8,7 @@ import java.awt.event.ActionListener;
 import java.util.List;
 
 import javax.swing.Box;
+import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -20,16 +21,18 @@ public class PanCommander extends JPanel {
 	private static final long serialVersionUID = 1L;
 	private ControlCommander controlCommande;
 	private PanEnregistrerCoordonneesBancaires panEnregistrerCoordonneesBancaires;
-	private int numClient = 0;
-	private int numeroHamburger = 0;
-	private int numeroAccompagnement = 0;
-	private int numeroBoisson = 0;
+	private int numClient = -1;
+	private int numeroHamburger = -1;
+	private int numeroAccompagnement = -1;
+	private int numeroBoisson = -1;
 	private Font policeTitre = new Font("Calibri", Font.BOLD, 24);
 	private Font policeParagraphe = new Font("Calibri", Font.HANGING_BASELINE, 16);
 	private Box boxMiseEnPageCommande = Box.createVerticalBox();
 	private Box boxChoixHamburger = Box.createHorizontalBox();
 	private Box boxChoixAccompagnement = Box.createHorizontalBox();
 	private Box boxChoixBoisson = Box.createHorizontalBox();
+	private Box boxValiderChoix = Box.createHorizontalBox();
+	private JButton validerCommande = new JButton();
 
 	/**
 	 * Constructeur PanCommander.
@@ -72,7 +75,7 @@ public class PanCommander extends JPanel {
 		boxMiseEnPageCommande.add(boxChoixAccompagnement);
 		this.add(boxMiseEnPageCommande);
 
-		/* Hamburger */
+		/* Boisson */
 		JLabel texteBoisson = new JLabel("Choisisez votre boisson :");
 		texteBoisson.setFont(policeParagraphe);
 
@@ -81,7 +84,19 @@ public class PanCommander extends JPanel {
 		boxMiseEnPageCommande.add(Box.createRigidArea(new Dimension(0, 30)));
 		boxMiseEnPageCommande.add(boxChoixBoisson);
 		this.add(boxMiseEnPageCommande);
-
+		
+		/* Bouton valider */
+		this.validerCommande.setText("Valider");
+		validerCommande.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				if ( numClient != -1 && numeroHamburger != -1 && numeroAccompagnement != -1 && numeroBoisson != -1) {
+					System.out.println("OK");
+				}
+			}
+		});
+		boxMiseEnPageCommande.add(Box.createRigidArea(new Dimension(0, 30)));
+		boxValiderChoix.add(validerCommande);
+		boxMiseEnPageCommande.add(boxValiderChoix);
 	}
 
 	/**
@@ -92,62 +107,73 @@ public class PanCommander extends JPanel {
 	public void commander(int numClient) {
 		this.numClient = numClient;
 		if (controlCommande.verifierIdentification(numClient)) {
-
-								/* Hamburger */
-			List<String> listeHamburger = controlCommande.getListHamburger();
-
-			final JComboBox<String> comboBoxHamburger = new JComboBox<>();
-			comboBoxHamburger.addItem("");
-			
-			for (String item : listeHamburger) {
-				comboBoxHamburger.addItem(item);
-			}
-			comboBoxHamburger.addActionListener(new ActionListener() {
-				@Override
-				public void actionPerformed(ActionEvent e) {
-					numeroHamburger = comboBoxHamburger.getSelectedIndex() - 1;
-				}
-			});
-
-			this.boxChoixHamburger.add(Box.createRigidArea(new Dimension(10, 0)));
-			this.boxChoixHamburger.add(comboBoxHamburger);
-
-								/* Accompagnement */
-			List<String> listeAccompagnement = controlCommande.getListAccompagnement();
-
-			final JComboBox<String> comboBoxAccompagnement = new JComboBox<>();
-			comboBoxHamburger.addItem("");
-			for (String item : listeAccompagnement) {
-				comboBoxAccompagnement.addItem(item);
-			}
-			comboBoxAccompagnement.addActionListener(new ActionListener() {
-				@Override
-				public void actionPerformed(ActionEvent e) {
-					numeroAccompagnement = comboBoxAccompagnement.getSelectedIndex() - 1;
-				}
-			});
-			
-			this.boxChoixAccompagnement.add(Box.createRigidArea(new Dimension(10, 0)));
-			this.boxChoixAccompagnement.add(comboBoxAccompagnement);
-
-								/* Boisson */
-			List<String> listeBoisson = controlCommande.getListBoisson();
-
-			final JComboBox<String> comboBoxBoisson = new JComboBox<>();
-			comboBoxBoisson.addItem("");
-			for (String item : listeBoisson) {
-				comboBoxBoisson.addItem(item);
-			}
-			comboBoxBoisson.addActionListener(new ActionListener() {
-				@Override
-				public void actionPerformed(ActionEvent e) {
-					numeroBoisson = comboBoxBoisson.getSelectedIndex() - 1;
-				}
-			});
-
-			this.boxChoixBoisson.add(Box.createRigidArea(new Dimension(10, 0)));
-			this.boxChoixBoisson.add(comboBoxBoisson);
-
+			this.affichageMenu();
+			this.selectionMenu();
 		}
+	}
+
+	
+	private void affichageMenu() {
+				/* Hamburger */
+		List<String> listeHamburger = controlCommande.getListHamburger();
+		
+		final JComboBox<String> comboBoxHamburger = new JComboBox<>();
+		comboBoxHamburger.addItem("");
+		
+		for (String item : listeHamburger) {
+			comboBoxHamburger.addItem(item);
+		}
+		comboBoxHamburger.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				numeroHamburger = comboBoxHamburger.getSelectedIndex() - 1;
+			}
+		});
+		
+		this.boxChoixHamburger.add(Box.createRigidArea(new Dimension(10, 0)));
+		this.boxChoixHamburger.add(comboBoxHamburger);
+		
+							/* Accompagnement */
+		List<String> listeAccompagnement = controlCommande.getListAccompagnement();
+		
+		final JComboBox<String> comboBoxAccompagnement = new JComboBox<>();
+		comboBoxAccompagnement.addItem("");
+		for (String item : listeAccompagnement) {
+			comboBoxAccompagnement.addItem(item);
+		}
+		comboBoxAccompagnement.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				numeroAccompagnement = comboBoxAccompagnement.getSelectedIndex() - 1;
+			}
+		});
+		
+		this.boxChoixAccompagnement.add(Box.createRigidArea(new Dimension(10, 0)));
+		this.boxChoixAccompagnement.add(comboBoxAccompagnement);
+		
+							/* Boisson */
+		List<String> listeBoisson = controlCommande.getListBoisson();
+		
+		final JComboBox<String> comboBoxBoisson = new JComboBox<>();
+		comboBoxBoisson.addItem("");
+		for (String item : listeBoisson) {
+			comboBoxBoisson.addItem(item);
+		}
+		comboBoxBoisson.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				numeroBoisson = comboBoxBoisson.getSelectedIndex() - 1;
+			}
+		});
+		
+		this.boxChoixBoisson.add(Box.createRigidArea(new Dimension(10, 0)));
+		this.boxChoixBoisson.add(comboBoxBoisson);
+
+	}
+	
+	private void selectionMenu() {
+		boxMiseEnPageCommande.setVisible(true);
+		this.setVisible(true);
+		repaint();
 	}
 }
