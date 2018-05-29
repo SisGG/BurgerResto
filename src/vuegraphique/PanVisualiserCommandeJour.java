@@ -22,7 +22,7 @@ public class PanVisualiserCommandeJour extends JPanel implements Observer {
 	private ControlVisualiserCommandeJour controlVisualiserCommandeJour;
 
 	// les attributs metiers
-	static Map<String, String> mapCommandeJour = new HashMap<>();
+	public static Map<String, String> mapCommandeJour = new HashMap<>();
 
 	// Les elements graphiques :
 	// polices d'ecritures

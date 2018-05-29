@@ -106,7 +106,7 @@ public class Menu {
      * @return L'hamburger récupéré.
      */
     public Hamburger getHamburger(int numHamburger) {
-    	return listeHamburger.get(numHamburger-1);
+    	return listeHamburger.get(numHamburger);
     }
     
     /**
@@ -116,7 +116,7 @@ public class Menu {
      * @return L'accompagnement récupéré.
      */
     public Accompagnement getAccompagnement(int numAccompagnement) {
-    	return listeAccompagnement.get(numAccompagnement-1);
+    	return listeAccompagnement.get(numAccompagnement);
     }
     
     /**
@@ -126,7 +126,7 @@ public class Menu {
      * @return La boisson récupéré.
      */
     public Boisson getBoisson(int numBoisson) {
-    	return listeBoisson.get(numBoisson-1);
+    	return listeBoisson.get(numBoisson);
     }
     
     /**
