@@ -2,7 +2,6 @@ package control;
 
 import java.util.Observer;
 
-import model.BDClient;
 import model.BDCommande;
 import model.ProfilUtilisateur;
 
@@ -12,16 +11,13 @@ import model.ProfilUtilisateur;
  * @author OLIVIER Thomas
  *
  */
+@SuppressWarnings("deprecation")
 public class ControlVisualiserCommandeSurPlace {
 	
     /**
      * @see control.ControlVerifierIdentification
      */
     private ControlVerifierIdentification controlVerifierIdentification;
-    /**
-     * @see model.BDClient
-     */
-    private BDClient bdClient = BDClient.getInstance();
     /**
      * @see model.BDCommande
      */

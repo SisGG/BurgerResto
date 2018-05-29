@@ -8,7 +8,7 @@ import control.ControlSIdentifier;
 import control.ControlVerifierCoordonneesBancaires;
 import control.ControlVerifierIdentification;
 import model.ProfilUtilisateur;
-import vueGraphique.FrameClient;
+import vuegraphique.FrameClientInternet;
 
 public class TestEcranClient {
 	
@@ -35,7 +35,7 @@ public class TestEcranClient {
 		int numClient = controlSIdentifier.sIdentifier(ProfilUtilisateur.CLIENT, "Hector.Dupond", "cdh");
 		
 		if ( numClient != -1 ) {
-			new FrameClient(numClient,
+			new FrameClientInternet(numClient,
 					new ControlCommander(new ControlVerifierIdentification()),
 					new ControlEnregistrerCoordonneesBancaires(new ControlVerifierCoordonneesBancaires()));
 		}

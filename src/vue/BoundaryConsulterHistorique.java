@@ -1,5 +1,7 @@
 package vue;
 
+import java.util.List;
+
 import control.ControlConsulterHistorique;
 
 /**
@@ -35,8 +37,10 @@ public class BoundaryConsulterHistorique {
 		
 		if ( identificationOk ) {
 			System.out.println("Historique du client n°" + (numProfil+1) + " : ");
-			String commandes = controlConsulterHistorique.consulterHistorique(numProfil);
-			System.out.println(commandes);
+			List<String> historique = controlConsulterHistorique.consulterHistorique(numProfil);
+			for(String commande : historique) {
+				System.out.println(commande);
+			}
 		}
 	}
 

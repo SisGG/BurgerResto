@@ -33,7 +33,7 @@ public class BoundaryCreerProfilPersonnel {
 	 * Créé un nouveau profil personnel.
 	 */
 	public void creerProfilPersonnel() {
-		String nom, prenom, mdp;
+		String nom, prenom;
 		System.out.print("Veuillez entrer le nom du nouvel employe : ");
 		nom = clavier.entrerClavierString();
 		System.out.print("Veuillez entrer le prénom du nouvel employe : ");

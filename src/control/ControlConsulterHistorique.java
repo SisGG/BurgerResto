@@ -1,5 +1,6 @@
 package control;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import model.BDClient;
@@ -51,16 +52,15 @@ public class ControlConsulterHistorique {
      * @param numClient Numéro du client à consulter.
      * @return La chaine de caractère comportant son l'historique des commandes.
      */
-    public String consulterHistorique(int numClient) {
+    public List<String> consulterHistorique(int numClient) {
         Client client = bdClient.selectionnerClient(numClient);
         List<Commande> listCommande = client.getHistoriqueCommandes();
-        String message = "";
+        List<String> message = new ArrayList<String>();
         for( Commande commande : listCommande) {
-            message += "Commande n°" + commande.getNumeroCommandeAttribuee() + " : "
+            message.add("Commande n°" + commande.getNumeroCommandeAttribuee() + " : "
                     + commande.getHamburger().getNom() + ", "
                     + commande.getAccompagnement().getNom() + ", "
-                    + commande.getBoisson().getNom()
-                    + ".\n";
+                    + commande.getBoisson().getNom());
         }
         return message;
     }

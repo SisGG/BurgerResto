@@ -4,6 +4,7 @@ import javax.swing.JFrame;
 
 import control.ControlEnregistrerCoordonneesBancaires;
 import control.ControlVerifierCoordonneesBancaires;
+import vuegraphique.IUseEnregistrerCoordonneesBancaires;
 import vuegraphique.PanEnregistrerCoordonneesBancaires;
 
 public class TestEnregistrerCoordonneeBancaire {
@@ -25,8 +26,8 @@ public class TestEnregistrerCoordonneeBancaire {
 		 PanEnregistrerCoordonneesBancaires(controlEnregistrerCoordonneesBancaires);
 		 fenetre.setContentPane(panTest);
 		 panTest.initialisation();
-		 //Cette ligne passe ne passe plus � la compilation dans la partie 16.
-		 panTest.enregistrerCoordonneesBancaires(1);
+		 //Cette ligne passe ne passe plus a la compilation dans la partie 16.
+		 //panTest.enregistrerCoordonneesBancaires(1);
 		 panTest.setVisible(true);
 		 fenetre.repaint();
 	}

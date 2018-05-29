@@ -12,6 +12,7 @@ import model.BDCommande;
  * @author OLIVIER Thomas
  *
  */
+@SuppressWarnings("deprecation")
 public class BoundaryVisualiserCommandeJour implements Observer {
 	
 	/**
@@ -47,7 +48,7 @@ public class BoundaryVisualiserCommandeJour implements Observer {
 							+ labels[2] + ", " + labels[3] + ", "
 							+ labels[4]);
 				} else {
-					System.out.println("Numéro d'affichage non reconnu");
+					System.out.println("Numero d'affichage non reconnu");
 				}
 				
 			} else {

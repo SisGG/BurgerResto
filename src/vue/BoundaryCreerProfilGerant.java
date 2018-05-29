@@ -1,7 +1,6 @@
 package vue;
 
 import control.ControlCreerProfil;
-import model.Client;
 import model.ProfilUtilisateur;
 
 /**

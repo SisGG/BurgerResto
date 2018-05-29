@@ -11,20 +11,21 @@ import model.BDCommande;
  * @author OLIVIER Thomas
  *
  */
+@SuppressWarnings("deprecation")
 public class BoundaryVisualiserCommandeSurPlace implements Observer {
 	
 	/**
 	 * @see control.ControlVisualiserCommandeSurPlace
 	 */
-	private ControlVisualiserCommandeSurPlace controlVisualiserCommandeClient;
+	private ControlVisualiserCommandeSurPlace ControlVisualiserCommandeSurPlace;
 	
 	/**
 	 * Constructeur BoundaryVisualiserCommandeSurPlace.
 	 *
-	 * @param controlVisualiserCommandeClient Controleur visualier commande du client.
+	 * @param ControlVisualiserCommandeSurPlace Controleur visualiser commande sur place.
 	 */
-	public BoundaryVisualiserCommandeSurPlace(ControlVisualiserCommandeSurPlace controlVisualiserCommandeClient) {
-		this.controlVisualiserCommandeClient = controlVisualiserCommandeClient;
+	public BoundaryVisualiserCommandeSurPlace(ControlVisualiserCommandeSurPlace ControlVisualiserCommandeSurPlace) {
+		this.ControlVisualiserCommandeSurPlace = ControlVisualiserCommandeSurPlace;
 	}
 	
 	/**
@@ -33,10 +34,10 @@ public class BoundaryVisualiserCommandeSurPlace implements Observer {
 	 * @param numClient Numéro de client.
 	 */
 	public void visualiserCommandeSurPlace(int numProfil) {
-		boolean identificationOk = controlVisualiserCommandeClient
+		boolean identificationOk = ControlVisualiserCommandeSurPlace
 				.verifierIdentification(numProfil);
 		if ( identificationOk ) {
-			controlVisualiserCommandeClient.setObserver(this);
+			ControlVisualiserCommandeSurPlace.setObserver(this);
 		}
 	}
 
@@ -57,7 +58,6 @@ public class BoundaryVisualiserCommandeSurPlace implements Observer {
 		} else {
 			System.out.println("Objet émetteur inconnu.");
 		}
-		
 	}
 	
 }

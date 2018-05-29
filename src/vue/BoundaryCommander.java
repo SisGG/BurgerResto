@@ -1,5 +1,7 @@
 package vue;
 
+import java.util.List;
+
 import control.ControlCommander;
 /**
  * 
@@ -44,19 +46,19 @@ public class BoundaryCommander {
     	
     	if ( clientConnecte ) {
     		
-    		String listeHamburger = controlCommander.getListHamburger();
+    		List<String> listeHamburger = controlCommander.getListHamburger();
     		System.out.print("Veuillez sélectionner le numéro de votre hamburger\n" + listeHamburger
     							+ "\nChoix : ");
     		int numeroHamburger = clavier.entrerClavierInt();
     		
 
-    		String listeAccompagnement = controlCommander.getListAccompagnement();
+    		List<String> listeAccompagnement = controlCommander.getListAccompagnement();
     		System.out.print("Veuillez sélectionner le numéro de votre accompagnement\n" + listeAccompagnement
     							+ "\nChoix : ");
     		int numeroAccompagnement = clavier.entrerClavierInt();
     		
 
-    		String listeBoisson = controlCommander.getListBoisson();
+    		List<String> listeBoisson = controlCommander.getListBoisson();
     		System.out.print("Veuillez sélectionner le numéro de votre boisson\n" + listeBoisson
     							+ "\nChoix : ");
     		int numeroBoisson = clavier.entrerClavierInt();

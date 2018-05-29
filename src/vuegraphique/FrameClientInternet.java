@@ -14,9 +14,10 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 import control.ControlCommander;
+import control.ControlConsulterHistorique;
 import control.ControlEnregistrerCoordonneesBancaires;
 
-public class FrameClient extends JFrame {
+public class FrameClientInternet extends JFrame {
 
 	private static final long serialVersionUID = 1L;
 	private static final String COMMANDER = "COMMANDER";
@@ -29,7 +30,7 @@ public class FrameClient extends JFrame {
 	private JPanel panAccueil = new JPanel();
 	private PanCommander panCommander;
 	private PanEnregistrerCoordonneesBancaires panEnregistrerCoordonneesBancaires;
-	private PanHistorique panHistorique = new PanHistorique();
+	private PanHistorique panHistorique;
 	private PanModifierProfil panModifierProfil = new PanModifierProfil();
 	private CardLayout cartes = new CardLayout();
 
@@ -40,13 +41,13 @@ public class FrameClient extends JFrame {
 	 * @param controlCommander Controleur commander commande.
 	 * @param controlEnregistrerCoordonneesBancaires Controleur Enregistrer coordonnees bancaires.
 	 */
-	public FrameClient(int numClient,
-			ControlCommander controlCommander,
-			ControlEnregistrerCoordonneesBancaires controlEnregistrerCoordonneesBancaires) {
+	public FrameClientInternet(int numClient, ControlCommander controlCommander,
+			ControlEnregistrerCoordonneesBancaires controlEnregistrerCoordonneesBancaires,
+			ControlConsulterHistorique controlConsulterHistorique) {
 		
 		panEnregistrerCoordonneesBancaires = new PanEnregistrerCoordonneesBancaires(controlEnregistrerCoordonneesBancaires);
-		panCommander = new PanCommander(controlCommander,
-				panEnregistrerCoordonneesBancaires);
+		panCommander = new PanCommander(controlCommander, panEnregistrerCoordonneesBancaires);
+		panHistorique = new PanHistorique(controlConsulterHistorique);
 		
 		this.setTitle("Burger Resto");
 		this.setSize(900, 400);
@@ -95,6 +96,7 @@ public class FrameClient extends JFrame {
 
 		historique.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent event) {
+				panHistorique.consulterHistorique(numClient);
 				cartes.show(panContents, HISTORIQUE);
 				panelVisible(HISTORIQUE);
 			}
@@ -107,7 +109,7 @@ public class FrameClient extends JFrame {
 			}
 		});
 
-		Menu menuDeconnexion = new Menu("Déconnexion");
+		Menu menuDeconnexion = new Menu("Deconnexion");
 		
 		barreMenu.add(menuMonCompte);
 		barreMenu.add(menuDeconnexion);
@@ -118,7 +120,7 @@ public class FrameClient extends JFrame {
 	 */
 	private void initialiserAccueil() {
 		this.panAccueil.setBackground(Color.ORANGE);
-		JLabel texteAccueil = new JLabel("Bienvenu à Burger Resto");
+		JLabel texteAccueil = new JLabel("Bienvenu a Burger Resto");
 		texteAccueil.setFont(new Font("Calibri", Font.BOLD, 24));
 		this.panAccueil.add(texteAccueil);
 		this.panAccueil.setVisible(true);

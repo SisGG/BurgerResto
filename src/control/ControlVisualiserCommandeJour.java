@@ -11,6 +11,7 @@ import model.ProfilUtilisateur;
  * @author OLIVIER Thomas
  *
  */
+@SuppressWarnings("deprecation")
 public class ControlVisualiserCommandeJour {
 
     /**

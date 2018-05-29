@@ -41,7 +41,7 @@ public class ControlRetirerCommandeBorne {
      * @param numeroCommande Numéro de la commande à retirer.
      * @return Vrai si la commande à été retirer.
      */
-    public boolean retirerCommande(int numeroCommande) {
+    public boolean retirerCommandeBorne(int numeroCommande) {
         Commande commande = bdCommande.supprimerCommande(numeroCommande);
         if ( commande != null ) {
             int numeroClient = commande.getNumClient();

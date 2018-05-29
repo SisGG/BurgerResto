@@ -36,7 +36,7 @@ public class BoundaryRetirerCommandeBorne {
 	public void retirerCommandeBorne() {
     	System.out.print("Veuillez entrer le numéro de commande : ");
     	int numeroCommande = clavier.entrerClavierInt();
-    	boolean commandeTrouvee = controlRetirerCommandeBorne.retirerCommande(numeroCommande);
+    	boolean commandeTrouvee = controlRetirerCommandeBorne.retirerCommandeBorne(numeroCommande);
     	if ( commandeTrouvee ) {
     		System.out.println("Vous pouvez récupérer votre commande au comptoir.");
     	} else {
