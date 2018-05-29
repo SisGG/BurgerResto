@@ -54,35 +54,31 @@ public class PanCommander extends JPanel {
 		texteCommander.setFont(policeTitre);
 
 		/* Hamburger */
-		JLabel texteHamburger = new JLabel("Choisissez votre hamburger");
+		JLabel texteHamburger = new JLabel("Choisissez votre hamburger :");
 		texteHamburger.setFont(policeParagraphe);
+		boxMiseEnPageCommande.add(texteCommander);
+		boxMiseEnPageCommande.add(Box.createRigidArea(new Dimension(0, 30)));
 
 		boxChoixHamburger.add(texteHamburger);
-		boxMiseEnPageCommande.add(Box.createRigidArea(new Dimension(0, 30)));
-		boxMiseEnPageCommande.add(texteCommander);
-
 		boxMiseEnPageCommande.add(boxChoixHamburger);
 		this.add(boxMiseEnPageCommande);
 
 		/* Accompagnement */
-		JLabel texteAccompagnement = new JLabel("Choisissez votre accompagnement");
+		JLabel texteAccompagnement = new JLabel("Choisissez votre accompagnement :");
 		texteAccompagnement.setFont(policeParagraphe);
-
 		boxChoixAccompagnement.add(texteAccompagnement);
+		
 		boxMiseEnPageCommande.add(Box.createRigidArea(new Dimension(0, 30)));
-		boxMiseEnPageCommande.add(texteCommander);
-
 		boxMiseEnPageCommande.add(boxChoixAccompagnement);
 		this.add(boxMiseEnPageCommande);
 
 		/* Hamburger */
-		JLabel texteBoisson = new JLabel("Choisisez votre boisson");
-		texteHamburger.setFont(policeParagraphe);
+		JLabel texteBoisson = new JLabel("Choisisez votre boisson :");
+		texteBoisson.setFont(policeParagraphe);
 
 		boxChoixBoisson.add(texteBoisson);
+		
 		boxMiseEnPageCommande.add(Box.createRigidArea(new Dimension(0, 30)));
-		boxMiseEnPageCommande.add(texteCommander);
-
 		boxMiseEnPageCommande.add(boxChoixBoisson);
 		this.add(boxMiseEnPageCommande);
 
@@ -102,6 +98,7 @@ public class PanCommander extends JPanel {
 
 			final JComboBox<String> comboBoxHamburger = new JComboBox<>();
 			comboBoxHamburger.addItem("");
+			
 			for (String item : listeHamburger) {
 				comboBoxHamburger.addItem(item);
 			}
