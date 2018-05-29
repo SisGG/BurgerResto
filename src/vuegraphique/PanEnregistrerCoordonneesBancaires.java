@@ -41,19 +41,20 @@ public class PanEnregistrerCoordonneesBancaires extends JPanel {
 
 		JLabel texteCoordonnerBancaire = new JLabel("Entrer vos coordonnées bancaires :");
 		texteCoordonnerBancaire.setFont(policeTitre);
-		boxMiseEnPageCoordonneeBancaire.add(texteCoordonnerBancaire);
 
 		JLabel texteNumeroCarteBancaire = new JLabel("Entrer le numéro de votre carte bancaire :");
 		texteNumeroCarteBancaire.setFont(policeParagraphe);
 		boxNumeroCarte.add(texteNumeroCarteBancaire);
-		textAeraNumeroCarte.setMaximumSize(new Dimension(120, 120));
+		boxNumeroCarte.add(Box.createRigidArea(new Dimension(10, 0)));
+		textAeraNumeroCarte.setMaximumSize(new Dimension(160, 45));
 		boxNumeroCarte.add(textAeraNumeroCarte);
 
 		JLabel texteValiditeCarte = new JLabel("Entrer la date d'expiration de votre carte bancaire :");
 		texteValiditeCarte.setFont(policeParagraphe);
 		boxValiditeCarte.add(texteValiditeCarte);
+		boxValiditeCarte.add(Box.createRigidArea(new Dimension(10, 0)));
 		textAeraDateExpiration.setForeground(Color.GRAY);
-		textAeraDateExpiration.setMaximumSize(new Dimension(60, 20));
+		textAeraDateExpiration.setMaximumSize(new Dimension(50, 45));
 		textAeraDateExpiration.setFont(policeAremplacer);
 		textAeraDateExpiration.addMouseListener(new MouseListener() {
 			public void mouseReleased(MouseEvent arg0) {}
@@ -78,8 +79,12 @@ public class PanEnregistrerCoordonneesBancaires extends JPanel {
 		boxValiderCarte.add(validationCoordonneesBancaires);
 		
 		// On ajoute les boxs dans la boxe principale.
+		boxMiseEnPageCoordonneeBancaire.add(texteCoordonnerBancaire);
+		boxMiseEnPageCoordonneeBancaire.add(Box.createRigidArea(new Dimension(0, 30)));
 		boxMiseEnPageCoordonneeBancaire.add(boxNumeroCarte);
+		boxMiseEnPageCoordonneeBancaire.add(Box.createRigidArea(new Dimension(0, 30)));
 		boxMiseEnPageCoordonneeBancaire.add(boxValiditeCarte);
+		boxMiseEnPageCoordonneeBancaire.add(Box.createRigidArea(new Dimension(0, 30)));
 		boxMiseEnPageCoordonneeBancaire.add(boxValiderCarte);
 		
 		this.add(boxMiseEnPageCoordonneeBancaire);
