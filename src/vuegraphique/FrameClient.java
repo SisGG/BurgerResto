@@ -1,4 +1,4 @@
-package vueGraphique;
+package vuegraphique;
 
 import java.awt.CardLayout;
 import java.awt.Color;
