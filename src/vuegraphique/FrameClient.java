@@ -23,6 +23,7 @@ public class FrameClient extends JFrame {
 	private static final String HISTORIQUE = "HISTORIQUE";
 	private static final String MODIFIER_PROFIL = "MODIFIER_PROFIL";
 	private static final String ECRAN_ACCUEIL = "ECRAN_ACCUEIL";
+	private static final String ENREGISTRER_COORDONNEES_BANCAIRES = "ENREGISTRER_COORDONNEES_BANCAIRES";
 	private MenuBar barreMenu = new MenuBar();
 	private JPanel panContents = new JPanel();
 	private JPanel panAccueil = new JPanel();
@@ -57,9 +58,11 @@ public class FrameClient extends JFrame {
 		panCommander.initialisation();
 		panHistorique.initialisation();
 		panModifierProfil.initialisation();
+		panEnregistrerCoordonneesBancaires.initialisation();
 		this.panContents.setLayout(cartes);
 		
 		panContents.add(panCommander, COMMANDER);
+		panContents.add(panEnregistrerCoordonneesBancaires, ENREGISTRER_COORDONNEES_BANCAIRES);
 		panContents.add(panHistorique, HISTORIQUE);
 		panContents.add(panModifierProfil, MODIFIER_PROFIL);
 		

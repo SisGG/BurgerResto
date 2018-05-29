@@ -16,7 +16,7 @@ import javax.swing.JPanel;
 import control.ControlCommander;
 import model.Hamburger;
 
-public class PanCommander extends JPanel {
+public class PanCommander extends JPanel implements IUseEnregistrerCoordonneesBancaires {
 
 	private static final long serialVersionUID = 1L;
 	private ControlCommander controlCommande;
@@ -90,7 +90,7 @@ public class PanCommander extends JPanel {
 		validerCommande.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if ( numClient != -1 && numeroHamburger != -1 && numeroAccompagnement != -1 && numeroBoisson != -1) {
-					System.out.println("OK");
+					validationCartePayement();
 				}
 			}
 		});
@@ -175,5 +175,28 @@ public class PanCommander extends JPanel {
 		boxMiseEnPageCommande.setVisible(true);
 		this.setVisible(true);
 		repaint();
+	}
+	
+	public void retourEnregistrerCoordonneesBancaires(boolean carteValide) {
+		this.panEnregistrerCoordonneesBancaires.setVisible(false);
+		if ( carteValide ) {
+			this.enregistrerCommande(carteValide);
+		}
+	}
+	
+	private void validationCartePayement() {
+		boolean carteRenseignee = controlCommande.isCarteRenseignee(numClient);
+		if ( !carteRenseignee ) {
+			boxMiseEnPageCommande.setVisible(false);
+			//panEnregistrerCoordonneesBancaires.setVisible(true);
+			this.repaint();
+			panEnregistrerCoordonneesBancaires.enregistrerCoordonneesBancaires(numClient, this);
+		} else {
+			this.enregistrerCommande(carteRenseignee);
+		}
+	}
+	
+	public void enregistrerCommande(boolean carteRenseignee) {
+		System.out.println("commande crée");
 	}
 }
